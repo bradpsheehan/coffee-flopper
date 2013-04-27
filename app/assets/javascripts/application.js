@@ -14,4 +14,18 @@
 //= require jquery_ujs
 //= require_tree .
 
-var map = L.map('map').setView([51.505, -0.09], 13);
+$.fn.ready(function() {
+  var lat = 10.0000; // change to your value
+  var lng = 10.0000; // change to your value
+  var bounds = new google.maps.LatLngBounds();
+  var map = new google.maps.Map(document.getElementById("map"), { zoom: 5, mapTypeId: google.maps.MapTypeId.ROADMAP, center: new google.maps.LatLng(parseFloat(lat), parseFloat(lng)) });
+
+  var lat_lng = new google.maps.LatLng(parseFloat(point.lat), parseFloat(point.lng));
+  var marker = new google.maps.Marker({
+    position: lat_lng,
+    title: "point"
+  });
+  marker.setMap(map);
+  bounds.extend(lat_lng);
+  map.fitBounds(bounds);
+});

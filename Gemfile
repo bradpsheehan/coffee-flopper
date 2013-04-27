@@ -6,6 +6,7 @@ gem 'unicorn'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'country_select'
+gem 'geocoder'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
