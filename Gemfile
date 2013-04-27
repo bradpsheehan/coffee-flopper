@@ -18,3 +18,7 @@ end
 group :test, :development do 
   gem 'sqlite3'
 end
+
+group :development do 
+  gem 'better_errors'
+end
