@@ -4,7 +4,6 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'unicorn'
 gem 'jquery-rails'
-gem 'flatui-rails'
 gem 'simple_form'
 gem 'country_select'
 
