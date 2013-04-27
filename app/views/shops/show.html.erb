@@ -25,6 +25,18 @@
   <%= @shop.groups %>
 </p>
 
+<p>
+  <b>Address:</b>
+  <% address = @shop.address %>
+  <%= address.line1 %>
+  <%= address.line2 %>
+  <%= address.city %>
+  <%= address.state %>
+  <%= address.zip %>
+</p>
+
+<div id="map"></div>
+
 
 <%= link_to 'Edit', edit_shop_path(@shop) %> |
 <%= link_to 'Back', shops_path %>

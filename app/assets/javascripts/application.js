@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require flat-ui
 //= require_tree .
+
+var map = L.map('map').setView([51.505, -0.09], 13);

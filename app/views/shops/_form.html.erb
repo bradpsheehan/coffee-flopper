@@ -11,16 +11,25 @@
     </div>
   <% end %>
 
-  <%= f.input :name %>
-  <%= f.input :website %>
-  <%= f.input :phone %>
-  <%= f.input :wifi %>
-  <%= f.input :groups %>
-  <div class="offset2">
-    <%= f.button :submit, class:"btn-large" %>
+  <div class="span4">
+    <%= f.input :name %>
+    <%= f.input :website %>
+    <%= f.input :phone %>
+    <%= f.input :wifi %>
+    <%= f.input :groups %>
+    <div class="offset2">
+      <%= f.button :submit, class:"btn-large" %>
+    </div>
+  </div>
+  <div class="span4">
+    <%= f.simple_fields_for :address do |p| %>
+      <%= p.input :line1, label: "Street" %>
+      <%= p.input :line2, label: "Street2" %>
+      <%= p.input :city %>
+      <%= p.input :state %>
+      <%= p.input :zip %>
+      <%= p.input :lat %>
+      <%= p.input :long %>
+    <% end %>
   </div>
 <% end %>
-
-  <div class="offset2">
-    <%= link_to 'Back', shops_path, class: "btn" %>
-  </div>

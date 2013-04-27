@@ -25,6 +25,7 @@ class ShopsController < ApplicationController
   # GET /shops/new.json
   def new
     @shop = Shop.new
+    @shop.build_address
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,14 +43,10 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(params[:shop])
 
-    respond_to do |format|
-      if @shop.save
-        format.html { redirect_to @shop, notice: 'Shop was successfully created.' }
-        format.json { render json: @shop, status: :created, location: @shop }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @shop.errors, status: :unprocessable_entity }
-      end
+    if @shop.save
+      redirect_to @shop, notice: 'Shop was successfully created.'
+    else
+      render action: "new"
     end
   end
 
