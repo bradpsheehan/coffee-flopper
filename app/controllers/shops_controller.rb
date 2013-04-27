@@ -14,7 +14,8 @@ class ShopsController < ApplicationController
   # GET /shops/1.json
   def show
     @shop = Shop.find(params[:id])
-
+    @yelp_details = Yelper.new(@shop).result
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @shop }

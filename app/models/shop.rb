@@ -8,4 +8,14 @@ class Shop < ActiveRecord::Base
 
   has_one :address
   accepts_nested_attributes_for :address, :allow_destroy => true
+
+  after_validation :yelp=
+
+  def to_s
+    name.split.join("+")
+  end
+
+  def yelp
+    @yelp_details ||= Yelper.new(self).result
+  end
 end

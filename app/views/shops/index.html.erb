@@ -3,6 +3,8 @@
 <table class="table">
   <tr>
     <th>Name</th>
+    <th>Rating</th>
+    <th>Recent Review:</th>
     <th>Website</th>
     <th>Phone</th>
     <th>Wifi</th>
@@ -16,7 +18,9 @@
 
 <% @shops.each do |shop| %>
   <tr>
-    <td><%= shop.name %></td>
+    <td><h2><%= shop.name %></h2></td>
+    <td><%= image_tag(shop.yelp.rating_img_url_large) %></td>
+    <td class="span3"><i><%= shop.yelp.snippet_text %></i></td>
     <td><%= shop.website %></td>
     <td><%= shop.phone %></td>
     <td><%= shop.wifi %></td>
