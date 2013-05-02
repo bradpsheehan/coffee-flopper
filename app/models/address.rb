@@ -4,6 +4,7 @@ class Address < ActiveRecord::Base
   belongs_to :shop
 
   geocoded_by :full_street_address
+  
   after_validation :geocode
 
   def full_street_address

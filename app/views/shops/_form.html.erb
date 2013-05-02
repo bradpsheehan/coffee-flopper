@@ -15,8 +15,8 @@
     <%= f.input :name %>
     <%= f.input :website %>
     <%= f.input :phone %>
-    <%= f.input :wifi %>
-    <%= f.input :groups %>
+    <%= f.input :wifi, as: :radio %>
+    <%= f.input :groups, as: :radio %>
     <div class="offset2">
       <%= f.button :submit, class:"btn-large" %>
     </div>

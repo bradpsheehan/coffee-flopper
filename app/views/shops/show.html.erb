@@ -42,14 +42,19 @@
 <%= address.city %>
 <%= address.state %>
 <%= address.zip %>
+  <p>
+    <%= address.latitude %>
+    <%= address.longitude %>
+  </p>
 </p>
 
 <p class="lead">
 <br />
 <b>Rating:</b> <%= @yelp_details.rating %>
 </p>
-<div id="map"></div>
 
+<div id="map"></div>
+<%= render "map", :object => @shop  %>
 
 <%= link_to 'Edit', edit_shop_path(@shop) %> |
 <%= link_to 'Back', shops_path %>

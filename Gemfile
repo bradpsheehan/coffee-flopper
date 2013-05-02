@@ -17,8 +17,14 @@ end
 
 group :test, :development do 
   gem 'sqlite3'
+  gem 'rspec'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-minitest'
+  gem 'rb-fsevent'
 end
 
 group :development do 
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
