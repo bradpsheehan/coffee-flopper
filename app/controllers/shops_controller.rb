@@ -42,6 +42,7 @@ class ShopsController < ApplicationController
   # POST /shops
   # POST /shops.json
   def create
+    fail
     @shop = Shop.new(params[:shop])
 
     if @shop.save

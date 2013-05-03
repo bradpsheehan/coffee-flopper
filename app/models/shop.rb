@@ -23,6 +23,6 @@ class Shop < ActiveRecord::Base
   end
 
   def yelp
-    @yelp_details = Yelper.new(@shop).result
+    @result ||= Yelper.new(self).result
   end
 end

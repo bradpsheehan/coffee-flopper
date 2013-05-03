@@ -1,62 +1,68 @@
-<%= @yelp_details.inspect %>
-<p id="notice"><%= notice %></p>
-
-<p class="lead">
-<b>Flopper:</b>
-<%= @shop.name %><br/>
-<%= image_tag @yelp_details.rating_img_url_large %>
-</p>
-<p class="lead">
-<%= link_to @shop.website, @shop.website %>
-</p>
-<p class="lead">
-<%= link_to(number_to_phone(@yelp_details.phone),"tel:+#{@yelp_details.phone}") %>
-</p>
-<div class="pull-right">
-  <p class="lead">
-  <%= image_tag @yelp_details.snippet_image_url, class: "pull-left" %>
-  <div class="span4">
-  <b>Review:</b>
-  <%= @yelp_details.snippet_text %>
+<div class="container">
+  <div class="row">
+    <div id="map" class="container"></div>
   </div>
-  </p>
+  <div class="row">
+    <table class="table">
+      <tr class="container">
+        <td class="span3">
+          <p class="lead">
+          <b>Flopper:</b>
+          <%= @shop.name %><br/>
+          <%= review(@shop) %><%= @shop.yelp.rating %>
+          </p>
+        </td>
+        <td>
+          <p class="lead">
+            <%= link_to @shop.website, @shop.website %>
+          </p>
+        </td>
+        <td>
+          <p class="lead">
+          <%= link_to number_to_phone(@yelp_details.phone),
+          "tel:+#{@yelp_details.phone}" %>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="row">
+    <table class="table">
+      <tr class="container">
+        <td class="span3">
+          <p class="pull-left">
+            <b>Review:</b>
+            <%= @yelp_details.snippet_text %>
+          </p>
+        </td>
+        <td>
+          <p class="lead">
+            <% address = @shop.address %>
+            <%= address.line1 %>
+            <%= address.line2 %>
+            <%= address.city %>
+            <%= address.state %>
+            <%= address.zip %>
+            <p>
+              <%= address.latitude %>
+              <%= address.longitude %>
+            </p>
+          </p>
+        </td>
+        <td>
+          <p class="lead">
+            <%= "Groups: #{@shop.groups}" %>
+            <%= "Wifi: #{@shop.wifi}" %>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <%= @yelp_details.inspect %>
+
+
+  <%= render "map", :object => @shop  %>
 </div>
-<div class="span4">
-<p class="lead">
-<b>Wifi:</b>
-<%= @shop.wifi %>
-</p>
-</div>
-<div class="span5">
-<p class="lead">
-<b>Groups:</b>
-<%= @shop.groups %>
-</p>
-</div>
-
-<p class="lead">
-<b>Address:</b>
-<% address = @shop.address %>
-<%= address.line1 %>
-<%= address.line2 %>
-<%= address.city %>
-<%= address.state %>
-<%= address.zip %>
-  <p>
-    <%= address.latitude %>
-    <%= address.longitude %>
-  </p>
-</p>
-
-<p class="lead">
-  <b>Rating:</b> <%= @yelp_details.rating %>
-</p>
-
-
-
-<div id="map"></div>
-<%= render "map", :object => @shop  %>
-
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
-
