@@ -33,7 +33,7 @@
 <%= @shop.groups %>
 </p>
 </div>
-<div class="span5">
+
 <p class="lead">
 <b>Address:</b>
 <% address = @shop.address %>
@@ -49,9 +49,10 @@
 </p>
 
 <p class="lead">
-<br />
-<b>Rating:</b> <%= @yelp_details.rating %>
+  <b>Rating:</b> <%= @yelp_details.rating %>
 </p>
+
+
 
 <div id="map"></div>
 <%= render "map", :object => @shop  %>

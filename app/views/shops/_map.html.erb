@@ -1,7 +1,7 @@
 <script>
 jQuery(document).ready(function () {
   var map;
-  var centerPosition = new google.maps.LatLng(<%=@shop.address.latitude%>, <%= @shop.address.longitude %>);
+  var centerPosition = new google.maps.LatLng(<%= @shop.address.latitude %>, <%= @shop.address.longitude %>);
 
 
     var style = [{

@@ -15,8 +15,20 @@
     <%= f.input :name %>
     <%= f.input :website %>
     <%= f.input :phone %>
-    <%= f.input :wifi, as: :radio %>
-    <%= f.input :groups, as: :radio %>
+
+  <div class="toggle">
+    <label class="toggle-radio" for="toggleOption2">ON</label>
+    <input type="radio" name="toggleOptions" id="toggleOption2" value="option2" checked="checked">
+    <label class="toggle-radio" for="toggleOption1">OFF</label>
+    <input type="radio" name="toggleOptions" id="toggleOption1" value="option1">
+  </div>
+
+  <div class="toggle">
+    <%= f.label :wifi, class: "toggle-radio" %>
+    <%= f.input :wifi, as: :radio_buttons, id: "toggleOption1" %>
+  </div>
+        <%# f.label class:"toggle-radio" %> 
+        <%# f.group , as: :radio %>
     <div class="offset2">
       <%= f.button :submit, class:"btn-large" %>
     </div>
@@ -31,3 +43,20 @@
     <% end %>
   </div>
 <% end %>
+
+<script>
+  // $(".shop_wifi").hide()
+
+    // # get current state of radio
+    // selectedType = if $('.shop_wifi input:checked').val() is "false" then "false" else "true"
+
+    // # update toggle buttons to match
+    // $("#btn-\#{ selectedType }").addClass('active')
+
+    // # wire up event handler to make toggle buttons update radio buttons
+    // $(document).on 'click', 'button[data-faux=radio]', (e) ->
+    //   $('button[data-faux=radio]').removeClass('active')
+    //   $(this).addClass('active')
+    //   identifier = if $(this).attr('id') is "btn-percent" then "true" else "false"
+    //   $("#discount_percent_\#{identifier}").prop('checked', true)
+</script>
