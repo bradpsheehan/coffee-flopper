@@ -16,21 +16,21 @@
     <%= f.input :website %>
     <%= f.input :phone %>
 
-    <div class="toggle">
-      <label class="toggle-radio" for="wifitrue">Wifi</label>
-      <input type="radio" name="wifi" id="wifitrue" value="true">
-      <label class="toggle-radio" for="wififalse">No Wifi</label>
-      <input type="radio" name="wifi" id="wififalse" value="false" checked="checked">
-    </div>
 
-    <div class="toggle">
-      <label class="toggle-radio" for="grouptrue">Groups</label>
-      <input type="radio" name="groups" id="grouptrue" value="true" checked="checked">
-      <label class="toggle-radio" for="groupfalse">No Groups</label>
-      <input type="radio" name="groups" id="groupfalse" value="false">
-    </div>
+    <div class="offset2 span3">
+      <div class="toggle">
+        <label class="toggle-radio" for="wifitrue">Wifi</label>
+        <input type="radio" name="wifi" id="wifitrue" value="true" checked="checked">
+        <label class="toggle-radio" for="wififalse">No Wifi</label>
+        <input type="radio" name="wifi" id="wififalse" value="false">
+      </div>
 
-    <div class="offset2">
+      <div class="toggle">
+        <label class="toggle-radio" for="grouptrue">Groups</label>
+        <input type="radio" name="groups" id="grouptrue" value="true" checked="checked">
+        <label class="toggle-radio" for="groupfalse">No Groups</label>
+        <input type="radio" name="groups" id="groupfalse" value="false">
+      </div>
       <%= f.button :submit, class:"btn-large" %>
     </div>
   </div>
