@@ -56,6 +56,11 @@ describe Address do
       address.zip = nil
       expect(address).to_not be_valid      
     end
+
+    it 'requires city to be present' do
+      address.city = nil
+      expect(address).to_not be_valid      
+    end
   end
 
   describe "gecoding" do

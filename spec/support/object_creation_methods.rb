@@ -1,6 +1,6 @@
 module ObjectCreationMethods
   def new_address(overrides = {})
-    defaults = {state: "CO", zip: 80204}
+    defaults = {city: 'Denver', state: 'CO', zip: 80204}
     Address.new(defaults.merge(overrides))
   end
 

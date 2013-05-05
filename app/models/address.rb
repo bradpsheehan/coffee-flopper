@@ -1,6 +1,7 @@
 class Address < ActiveRecord::Base
   attr_accessible :line1, :line2, :city, :state, :zip, :latitude, :longitude
   
+  validates :city, :presence => true
   validate :state_must_be_valid
   
   def state_must_be_valid
