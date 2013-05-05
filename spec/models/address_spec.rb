@@ -1,6 +1,26 @@
 require 'spec_helper'
 
 describe Address do
+  before do
+    Geocoder.configure(:lookup => :test)
+
+    Geocoder::Lookup::Test.add_stub(
+      "CO 80204", [
+        {
+          'latitude'     => 40.7143528,
+          'longitude'    => -74.0059731
+        }
+      ]
+    )
+    Geocoder::Lookup::Test.add_stub(
+      "1062 Delaware Street Denver CO 80204", [
+        {
+          'latitude'     => 40.7143528,
+          'longitude'    => -74.0059731
+        }
+      ]
+    )
+  end
 
   describe 'validations' do
     let(:address) { new_address }
@@ -37,4 +57,35 @@ describe Address do
       expect(address).to_not be_valid      
     end
   end
+
+  describe "gecoding" do
+    it 'geocodes address on save' do
+      address = new_address(line1: '1062 Delaware Street', city: "Denver", zip: 80204, state: "CO")
+
+      expect(address.latitude).to be_nil
+      expect(address.longitude).to be_nil
+
+      address.save!
+
+      expect(address.latitude).to_not be_nil
+      expect(address.longitude).to_not be_nil
+    end
+
+    it 'does not geocode if the record is invalid' do
+      address = new_address
+      address.state = nil
+
+      expect(address).to be_invalid
+      expect(address.latitude).to be_nil
+      expect(address.longitude).to be_nil
+
+      address.save
+
+      expect(address.latitude).to be_nil
+      expect(address.longitude).to be_nil
+    end
+
+  end
+
+  
 end
