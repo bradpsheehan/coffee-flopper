@@ -1,30 +1,40 @@
 require 'spec_helper'
 
 describe Address do
-  let(:valid_attributes){
-    {state: "CO", zip: 80204}
-  }
 
-  let(:invalid_attributes){
-    {state: "tacoshack", zip: "tacoshack"}
-  }
+  describe 'validations' do
+    let(:address) { new_address }
 
-  context 'valid attributes' do 
-    it 'Must have State and Zipcode to be valid' do 
-      address = Address.create!(state: "CO", zip: 80204)
+    before do
       expect(address).to be_valid
     end
-  end
 
-  context 'invalid attributes' do 
-    it 'State must be valid' do 
-      address = Address.create(invalid_attributes)
+    it 'requires state to be one of the enumerated states, either by abbreviation or full name' do
+      address.state = 'Colorado'
+      expect(address).to be_valid
+
+      address.state = 'Baz'
+
+      expect(address).to_not be_valid
+    end
+
+    it 'requires state to be present' do
+      address.state = nil
+
       expect(address).to_not be_valid
     end
 
     it 'Zipcode should be 5 digits' do 
-      address = Address.create(invalid_attributes)
+      address.zip = 1234
       expect(address).to_not be_valid
+
+      address.zip = 'taco'
+      expect(address).to_not be_valid
+    end
+
+    it 'requires zipcode to be present' do
+      address.zip = nil
+      expect(address).to_not be_valid      
     end
   end
 end

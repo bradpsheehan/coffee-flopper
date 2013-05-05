@@ -6,9 +6,10 @@ class Shop < ActiveRecord::Base
     :wifi,
     :address_attributes
 
-  validates_presence_of :name
+  validates_presence_of :name, :address
 
   has_one :address
+  validates_associated :address
   accepts_nested_attributes_for :address, :allow_destroy => true
 
   def to_s

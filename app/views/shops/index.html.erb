@@ -8,11 +8,14 @@
         <%= link_to shop.name, shop %>
         <%= shop.website %>
       </h4>
-      <%= shop.wifi %>
-      <%= shop.groups %>
-      <p class="span4">
-        <i><%= shop.yelp.snippet_text %></i>
-      </p>
+      <div class="media">
+          <strong>.<%= wifi_helper(shop) %>.</strong>
+          <br/>
+          <strong>.<%= group_helper(shop) %>.</strong>
+        <div class="media-body">
+            <i><%= shop.yelp.snippet_text %></i>
+        </div>
+      </div>
       
     </div>
   </div>

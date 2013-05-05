@@ -4,6 +4,22 @@ module ShopsHelper
     image_tag(shop.yelp.rating_img_url_large, class: "media-object")
   end
 
+  def wifi_helper(shop)
+    if shop.wifi == true
+      "Has Free Wifi"
+    else
+      "No Free Wifi"
+    end
+  end
+
+  def group_helper(shop)
+    if shop.groups == true
+      "Great for Groups"
+    else
+      "Bad for Groups"
+    end
+  end
+
   def us_states
     [['Alabama', 'AL'],
     ['Alaska', 'AK'],
