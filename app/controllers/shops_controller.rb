@@ -1,6 +1,5 @@
 class ShopsController < ApplicationController
-  # GET /shops
-  # GET /shops.json
+
   def index
     @shops = Shop.all
 
@@ -10,8 +9,6 @@ class ShopsController < ApplicationController
     end
   end
 
-  # GET /shops/1
-  # GET /shops/1.json
   def show
     @shop = Shop.find(params[:id])
     @yelp_details = Yelper.new(@shop).result
@@ -34,15 +31,11 @@ class ShopsController < ApplicationController
     end
   end
 
-  # GET /shops/1/edit
   def edit
     @shop = Shop.find(params[:id])
   end
 
-  # POST /shops
-  # POST /shops.json
   def create
-    fail
     @shop = Shop.new(params[:shop])
 
     if @shop.save

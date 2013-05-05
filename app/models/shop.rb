@@ -6,6 +6,8 @@ class Shop < ActiveRecord::Base
     :wifi,
     :address_attributes
 
+  validates_presence_of :name
+
   has_one :address
   accepts_nested_attributes_for :address, :allow_destroy => true
 
@@ -13,10 +15,6 @@ class Shop < ActiveRecord::Base
     name.split.join("+")
   end
   
-  def set_yelp
-    yelp_hash.inspect
-    # self.update_attributes(yelp_hash)  
-  end
 
   def yelp_hash
     Yelper.new(@shop).hash

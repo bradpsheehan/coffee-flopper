@@ -17,7 +17,8 @@ end
 
 group :test, :development do 
   gem 'sqlite3'
-  gem 'rspec'
+  gem 'rspec-rails', "~> 2.0"
+  gem 'capybara'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-minitest'

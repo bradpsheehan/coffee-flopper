@@ -1,35 +1,19 @@
-<h1><%= title %></h1>
-
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Rating</th>
-    <th>Recent Review:</th>
-    <th>Website</th>
-    <th>Phone</th>
-    <th>Wifi</th>
-    <th>Groups</th>
-    <th>Street</th>
-    <th>City</th>
-    <th>show</th>
-    <th>edit</th>
-    <th>destroy</th>
-  </tr>
-
-  <% @shops.each do |shop| %>
-    <tr>
-      <td><h2><%= shop.name %></h2></td>
-      <td><%= review(shop) %></td>
-      <td><i><%= shop.yelp.snippet_text %></i></td>
-      <td><%= shop.website %></td>
-      <td><%= shop.phone %></td>
-      <td><%= shop.wifi %></td>
-      <td><%= shop.groups %></td>
-      <td><%= shop.address.line1 %></td>
-      <td><%= shop.address.city %></td>
-      <td><%= link_to 'Show', shop %></td>
-      <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-      <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<% @shops.each do |shop| %>
+  <div class="media">
+    <a class="pull-left" href="#">
+      <%= review(shop) %>
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to shop.name, shop %>
+        <%= shop.website %>
+      </h4>
+      <%= shop.wifi %>
+      <%= shop.groups %>
+      <p class="span4">
+        <i><%= shop.yelp.snippet_text %></i>
+      </p>
+      
+    </div>
+  </div>
+<% end %>

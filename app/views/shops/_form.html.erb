@@ -1,35 +1,22 @@
 <%= simple_form_for(@shop, :html => {:class => 'form-horizontal' }) do |f| %>
-  <% if @shop.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
-
-      <ul>
-      <% @shop.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="span4">
     <%= f.input :name %>
     <%= f.input :website %>
     <%= f.input :phone %>
 
-
     <div class="offset2 span3">
       <div class="toggle">
         <label class="toggle-radio" for="wifitrue">Wifi</label>
-        <input type="radio" name="wifi" id="wifitrue" value="true" checked="checked">
+        <input type="radio" name="wifi" id="wififalse" value="true" checked="checked">
         <label class="toggle-radio" for="wififalse">No Wifi</label>
-        <input type="radio" name="wifi" id="wififalse" value="false">
+        <input type="radio" name="wifi" id="wifitrue" value="false">
       </div>
 
       <div class="toggle">
         <label class="toggle-radio" for="grouptrue">Groups</label>
-        <input type="radio" name="groups" id="grouptrue" value="true" checked="checked">
+        <input type="radio" name="groups" id="groupfalse" value="true" checked="checked">
         <label class="toggle-radio" for="groupfalse">No Groups</label>
-        <input type="radio" name="groups" id="groupfalse" value="false">
+        <input type="radio" name="groups" id="grouptrue" value="false">
       </div>
       <%= f.button :submit, class:"btn-large" %>
     </div>
@@ -44,20 +31,3 @@
     <% end %>
   </div>
 <% end %>
-
-<script>
-  // $(".shop_wifi").hide()
-
-    // # get current state of radio
-    // selectedType = if $('.shop_wifi input:checked').val() is "false" then "false" else "true"
-
-    // # update toggle buttons to match
-    // $("#btn-\#{ selectedType }").addClass('active')
-
-    // # wire up event handler to make toggle buttons update radio buttons
-    // $(document).on 'click', 'button[data-faux=radio]', (e) ->
-    //   $('button[data-faux=radio]').removeClass('active')
-    //   $(this).addClass('active')
-    //   identifier = if $(this).attr('id') is "btn-percent" then "true" else "false"
-    //   $("#discount_percent_\#{identifier}").prop('checked', true)
-</script>
