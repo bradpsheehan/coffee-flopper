@@ -1,6 +1,6 @@
 <%= simple_form_for(@shop, :html => {:class => 'form-horizontal' }) do |f| %>
   <div class="span4">
-    <%= f.input :name %>
+    <%= f.input :name, placeholder: "required..." %>
     <%= f.input :website %>
     <%= f.input :phone %>
 
@@ -25,9 +25,9 @@
     <%= f.simple_fields_for :address do |p| %>
       <%= p.input :line1, label: "Street" %>
       <%= p.input :line2, label: "Street2" %>
-      <%= p.input :city %>
-      <%= p.input :state %>
-      <%= p.input :zip %>
+      <%= p.input :city, required: true, placeholder: "required..." %>
+      <%= p.input :state, required: true, placeholder: "required..." %>
+      <%= p.input :zip, required: true, placeholder: "required..." %>
     <% end %>
   </div>
 <% end %>

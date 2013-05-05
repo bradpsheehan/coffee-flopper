@@ -11,7 +11,6 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @yelp_details = Yelper.new(@shop).result
     
     respond_to do |format|
       format.html # show.html.erb

@@ -1,3 +1,5 @@
+<%= render partial: 'layouts/find_user'%>
+
 <% @shops.each do |shop| %>
   <div class="media">
     <a class="pull-left" href="#">
@@ -13,10 +15,11 @@
           <br/>
           <strong>.<%= group_helper(shop) %>.</strong>
         <div class="media-body">
-            <i><%= shop.yelp.snippet_text %></i>
+          <i><%= shop.yelp.snippet_text %></i>
         </div>
       </div>
       
     </div>
   </div>
 <% end %>
+

@@ -12,16 +12,16 @@ class Shop < ActiveRecord::Base
   validates_associated :address
   accepts_nested_attributes_for :address, :allow_destroy => true
 
-  def to_s
+  def search_query
     name.split.join("+")
-  end
-  
-
-  def yelp_hash
-    Yelper.new(@shop).hash
   end
 
   def yelp
-    @result ||= Yelper.new(self).result
+    @result ||= Yelper.new(YELP_CONFIG).shop_details(self)
   end
+
+  def similar_yelp
+    @results ||= Yelper.new(YELP_CONFIG).similar_to(self)
+  end
+
 end
