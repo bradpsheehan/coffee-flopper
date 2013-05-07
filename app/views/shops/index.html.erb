@@ -1,4 +1,5 @@
 <%= render partial: 'layouts/find_user'%>
+<%= render partial: 'layouts/instagram_images'%>
 
 <% @shops.each do |shop| %>
   <div class="media">
@@ -21,10 +22,4 @@
       
     </div>
   </div>
-<% end %>
-
-<% if @images %>
-  <% @images.each do |image| %>
-  <%= image_tag image.images.thumbnail.url %>
-  <% end %>
 <% end %>

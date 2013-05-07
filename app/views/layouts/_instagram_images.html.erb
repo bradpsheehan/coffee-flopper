@@ -1,0 +1,5 @@
+<% if @images %>
+  <% @images.each do |image| %>
+  <%= image_tag image.images.thumbnail.url %>
+  <% end %>
+<% end %>
