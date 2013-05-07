@@ -1,8 +1,8 @@
 class ShopsController < ApplicationController
 
   Instagram.configure do |config|
-    config.client_id = "5135f1ff86504fd0955b215acfff4a9e"
-    config.client_secret = "3fa093133f624527a5ebd281e61c175e"
+    config.client_id = ENV["INSTA_CLIENT_ID"]
+    config.client_secret = ENV["INSTA_CLIENT_SECRET"]
   end
 
   def connect
