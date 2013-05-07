@@ -25,6 +25,6 @@
 
 <% if @images %>
   <% @images.each do |image| %>
-  <%= image.images.thumbnail.url %>
+  <%= image_tag image.images.thumbnail.url %>
   <% end %>
 <% end %>
