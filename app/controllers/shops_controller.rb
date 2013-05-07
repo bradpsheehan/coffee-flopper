@@ -1,5 +1,10 @@
 class ShopsController < ApplicationController
 
+  Instagram.configure do |config|
+    config.client_id = "5135f1ff86504fd0955b215acfff4a9e"
+    config.client_secret = "3fa093133f624527a5ebd281e61c175e"
+  end
+
   def connect
     if params[:access_token]
       redirect_to root_path
