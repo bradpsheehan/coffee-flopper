@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
       client = Instagram.client(:access_token => session[:access_token])
       @user = client.user
       @images = client.user_recent_media
+    else
+      @user = OpenStruct.new(username: "Guest")
+      @images = []
     end
   end
 end

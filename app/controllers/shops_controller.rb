@@ -1,10 +1,5 @@
 class ShopsController < ApplicationController
 
-  Instagram.configure do |config|
-    config.client_id = ENV["INSTA_CLIENT_ID"]
-    config.client_secret = ENV["INSTA_CLIENT_SECRET"]
-  end
-
   def connect
     if session[:access_token]
       redirect_to root_path

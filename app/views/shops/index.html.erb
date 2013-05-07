@@ -23,4 +23,8 @@
   </div>
 <% end %>
 
-<%= @images.inspect %>
+<% if @images %>
+  <% @images.each do |image| %>
+  <%= image.images.thumbnail.url %>
+  <% end %>
+<% end %>
