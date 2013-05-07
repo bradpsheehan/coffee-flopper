@@ -1,5 +1,20 @@
 class ShopsController < ApplicationController
 
+  def connect
+    if params[:access_token]
+      redirect_to root_path
+    else
+      redirect_to Instagram.authorize_url(:redirect_uri => oauth_callback_url)
+    end
+
+  end
+
+  def callback
+    response = Instagram.get_access_token(params[:code], :redirect_uri => oauth_callback_url)
+    session[:access_token] = response.access_token
+    redirect_to root_path
+  end
+
   def index
     @shops = Shop.all
 
