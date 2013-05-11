@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
     if session[:access_token]
       redirect_to root_path
     else
-      redirect_to Instagram.authorize_url(:redirect_uri => oauth_callback_path)
+      redirect_to Instagram.authorize_url(:redirect_uri => oauth_callback_url)
     end
   end
 
