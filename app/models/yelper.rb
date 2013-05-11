@@ -14,7 +14,7 @@ class Yelper
     build_yelps(results).reject {|b|b.id == shop.yelp.id}
   end
 
-  private
+private
 
   def build_yelps(businesses)
     businesses.map do |business|

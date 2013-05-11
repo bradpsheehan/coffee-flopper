@@ -28,7 +28,18 @@
         <% end %>
         <li><%= link_to "About Us", "https://github.com/blairand/coffee-flopper"%>
         </li>
-        <li><%= instagram %></li>
+        <li class="active">
+          <a href="#">
+            Accounts
+            <span class="navbar-unread"></span>
+          </a>
+          <ul>
+            <li><%= instagram %></li>
+            <%# @shops.each do |shop| %>
+            <li><%# link_to shop.name, shop_path(shop) %></li>
+            <%# end %>
+          </ul> <!-- /Sub menu -->
+        </li>
       </ul>
       <form class="navbar-form">
         <input class="span4" type="search" placeholder="Sippin... Searchin....">

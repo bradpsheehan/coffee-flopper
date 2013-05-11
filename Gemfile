@@ -10,6 +10,7 @@ gem 'geocoder'
 gem 'oauth'
 gem 'petroglyph'
 gem 'instagram'
+gem "github_api"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
